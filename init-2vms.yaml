@@ -1,0 +1,35 @@
+
+domains:
+  vm-01:
+    nics:
+      - net: lago
+      - net: none-mgmt
+    disks:
+      - template_name: el7.3-base
+        type: template
+        name: root
+        dev: sda
+        format: qcow2
+  vm-02:
+    nics:
+      - net: lago
+      - net: none-mgmt
+    disks:
+      - template_name: el7.3-base
+        type: template
+        name: root
+        dev: sda
+        format: qcow2
+nets:
+  lago:
+    type: nat
+    dhcp:
+      start: 100
+      end: 254
+    management: true
+    dns_domain_name: lago.local
+  none-mgmt:
+    type: nat
+    dhcp:
+      start: 100
+      end: 254
